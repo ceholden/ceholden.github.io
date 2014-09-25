@@ -1,22 +1,35 @@
 # Dependencies
-markdown:         redcarpet
-pygments:         true
+markdown:      redcarpet
+highlighter:   true
 
 # Permalinks
 permalink:        pretty
 
 # Setup
-title:            Poole
-tagline:          The Jekyll Butler
-url:              http://getpoole.com
-paginate:         1
+title:            Chris Holden
+tagline:          'Remote sensing, Python, Science'
+url:              https://ceholden.github.io/
 baseurl:          /
+paginate:         1
 author:
-  name:           Mark Otto
-  url:            https://twitter.com/mdo
-  email:          markdotto@gmail.com
+  name:           Chris Holden
+  url:            https://ceholden.github.io/
+  email:          ceholden@gmail.com
+
+# Tagging
+
+# FROM https://github.com/joshualande/joshualande.github.io
+# This is the list of pages to include in the header of the website.
+pages_list:
+  About: '/about/'
+  Utilities: '/repos/'
+  Archive: '/archive/'
+  Feed: '/atom.xml'
 
 # Custom vars
 version:          1.0.0
 github:
-  repo:           https://github.com/poole/poole
+  repo:           https://github.com/ceholden/ceholden.github.io
+
+gems:
+  - jekyll-mentions

@@ -9,7 +9,9 @@
       <div class="masthead">
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
-          <small>{{ site.tagline }}</small>
+          {% for page in site.pages_list %}
+              &nbsp;&nbsp;&nbsp;<small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
+          {% endfor %}
         </h3>
       </div>
 
@@ -17,7 +19,7 @@
 
       <div class="footer">
         <p>
-          &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+          &copy; {{ site.time | date: '%Y' }} Chris Holden. Created with <a href="http://jekyllrb.com/">Jekyll</a> and <a href="http://getpoole.com/">Poole theme</a>.
         </p>
       </div>
     </div>
