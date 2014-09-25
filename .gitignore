@@ -1,0 +1,11 @@
+_site
+
+*.log
+*.swp
+*~
+*.vi
+.DS_Store
+._*
+Thumbs.db
+.cache
+nbproject
