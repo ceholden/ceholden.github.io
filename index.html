@@ -4,6 +4,7 @@ title: Home
 ---
 
 <div class="posts">
+
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
@@ -12,11 +13,26 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date">
+      <i class="fa fa-calendar"> </i> {{ post.date | date: "%B %d, %Y" }}
+      {% if post.tags.size > 1 %}
+        <i class="fa fa-tags fa-1x"></i>
+      {% elsif post.tags.size == 1 %}
+        <i class="fa fa-tag fa-1x"></i>
+      {% endif %}
+      {% for tag in post.tags %}
+          <a href="{{ site.baseurl }}tags/#{{ tag | cgi_escape }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>
+      {% unless forloop.last %}
+          &bull;
+      {% endunless %}
+      {% endfor %}
+    </span>
 
     {{ post.content }}
+
   </div>
   {% endfor %}
+
 </div>
 
 <div class="pagination">

@@ -10,21 +10,20 @@ title:            Chris Holden
 tagline:          'Remote sensing, Python, Science'
 url:              https://ceholden.github.io/
 baseurl:          /
-paginate:         1
+paginate:         5
 author:
   name:           Chris Holden
   url:            https://ceholden.github.io/
   email:          ceholden@gmail.com
 
-# Tagging
+disqus_shortname: ceholden
 
 # FROM https://github.com/joshualande/joshualande.github.io
 # This is the list of pages to include in the header of the website.
 pages_list:
   About: '/about/'
   Utilities: '/repos/'
-  Archive: '/archive/'
-  Feed: '/atom.xml'
+  Tags: '/tags/'
 
 # Custom vars
 version:          1.0.0

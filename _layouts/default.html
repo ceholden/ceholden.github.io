@@ -7,22 +7,25 @@
 
     <div class="container content">
       <div class="masthead">
-        <h3 class="masthead-title">
+        <h2 class="masthead-title">
           <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
+
           {% for page in site.pages_list %}
               &nbsp;&nbsp;&nbsp;<small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
           {% endfor %}
-        </h3>
+
+          &nbsp;&nbsp;&nbsp;
+          <a href="/atom.xml"><i class="fa fa-rss fa-1x"></i></a>
+
+        </h2>
       </div>
 
       {{ content }}
 
-      <div class="footer">
-        <p>
-          &copy; {{ site.time | date: '%Y' }} Chris Holden. Created with <a href="http://jekyllrb.com/">Jekyll</a> and <a href="http://getpoole.com/">Poole theme</a>.
-        </p>
-      </div>
-    </div>
+      {% include disqus_comments.html %}
 
+      {% include footer.html %}
+
+    </div>
   </body>
 </html>
