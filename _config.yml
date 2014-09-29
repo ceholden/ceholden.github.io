@@ -5,6 +5,9 @@ highlighter:   true
 # Permalinks
 permalink:        pretty
 
+# Exclude present folder since we'll make HTMLs ourself
+exclude:          ['present/tips/*.md']
+
 # Setup
 title:            Chris Holden
 tagline:          'Remote sensing, Python, Science'
