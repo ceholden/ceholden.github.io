@@ -2,7 +2,7 @@
 
 # Tip of the Week
 
-Tuesday, September 29, 2014
+Tuesday, September 30, 2014
 
 ---
 
