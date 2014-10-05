@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" media="print" href="../../../reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="tip-of-the-week" class="slide level1">
+<h1>Tip of the Week</h1>
+<p>Tuesday, October 7th, 2014</p>
+</section>
+<section id="source-code-revision-control" class="slide level1">
+<h1>Source Code Revision Control</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="why---in-general">Why? - In general:</h2>
+<ul>
+<li class="fragment">Document what changed</li>
+<li class="fragment">Document how it changed</li>
+<li class="fragment">Collaborative work</li>
+<li class="fragment">Permanent history of versions facilitates comparisons</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="why---in-practice">Why? - In practice:</h2>
+<ul>
+<li class="fragment">Improved communication of changes with others</li>
+<li class="fragment">Synchronize your work across computers</li>
+<li class="fragment">Enables regression testing</li>
+<li class="fragment">Helps fix bugs faster</li>
+<li class="fragment">Easier than changelogs + diffs</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="semantic-versioning">Semantic Versioning</h2>
+<p>Example: QGIS versions 1.8.0, 2.0.0, 2.0.1, and 2.4.0</p>
+<ul>
+<li class="fragment">MAJOR version changed from 1.X - 2.X and broke the existing API</li>
+<li class="fragment">MINOR version changed from 2.0 to 2.4 with new features added</li>
+<li class="fragment">PATCH version changed from 2.0.0 to 2.0.1 with bug fixes</li>
+<li class="fragment">See <a href="http://semver.org/">http://semver.org/</a></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="changelogs">Changelogs</h2>
+<ul>
+<li class="fragment">Succinct description of what changed when</li>
+<li class="fragment">Long lists of changes</li>
+<li class="fragment">No information on what changed where and how</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="diffs-and-patches">Diffs and patches</h2>
+<ul>
+<li class="fragment">Summary of how the code changed
+<ul>
+<li class="fragment">Compare insertions and deletions</li>
+</ul></li>
+<li class="fragment">Links first version to current version - &quot;delta-encoding&quot;</li>
+<li class="fragment">Try in your terminal:
+<ul>
+<li class="fragment"><code>diff file_v1.txt file_v2.txt</code></li>
+</ul></li>
+<li class="fragment"><img src="media/git_diff.png" title="fig:" alt="Github diff" /></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="version-control-systems-vcs">Version Control Systems (VCS)</h2>
+<ul>
+<li class="fragment">Git</li>
+<li class="fragment">Subversion (SVN)</li>
+<li class="fragment">Mercurial (hg)</li>
+<li class="fragment">Many, many more (please don't use CVS)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="some-concepts">Some Concepts</h2>
+<p>From <a href="http://en.wikipedia.org/wiki/Revision_control#Source-management_models">wikipedia</a>:</p>
+<ul>
+<li class="fragment"><strong>Repository</strong>: location of files and history, often on a server</li>
+<li class="fragment"><strong>Working copy</strong>: local copy of files from repository, at specific time or revision (where you do your new work)</li>
+<li class="fragment"><strong>Commit</strong>: write your changes in your local history, including how the code changed (diff) and why (changelog)</li>
+<li class="fragment"><strong>Push</strong>: send your local history to the repository, enabling it to be shared by others</li>
+<li class="fragment"><strong>Pull</strong> or <strong>Update</strong>: bring changes from the remote repository into your local working copy</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="git">Git</h2>
+<p>A very popularDistributed Version Control System used extensively in open source software (e.g., Linux kernel).</p>
+</section>
+<section class="slide level1">
+
+<h2 id="git-1">Git</h2>
+<p>Clone a repository from Github</p>
+<pre><code>&gt; git clone https://github.com/try-git/try_git.git
+Cloning into &#39;try_git&#39;...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+&gt; cd try_git/</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-2">Git</h2>
+<p>Do some work, then add the text file</p>
+<pre><code>&gt; echo &quot;some work&quot; &gt; my_file.txt
+&gt; git add my_file.txt</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-3">Git</h2>
+<p>Check our status</p>
+<pre><code>&gt; git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+    new file:   my_file.txt</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-4">Git</h2>
+<p>Commit the change with a message</p>
+<pre><code>&gt; git commit -m &quot;I did some work. Wow!&quot;
+ 1 file changed, 1 insertion(+)
+ create mode 100644 my_file.txt</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-5">Git</h2>
+<p>Check our history</p>
+<pre><code>&gt; git log
+commit 9e0e514d7b54e45d2d8667472376d125939a780a
+Author: Chris Holden &lt;ceholden@gmail.com&gt;
+Date:   Sun Oct 5 19:23:53 2014 -0400
+
+    I did some work. Wow!</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-6">Git</h2>
+<p>Push the changes to our repository</p>
+<pre><code>&gt; git push origin master</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="git-on-scc">Git on SCC</h2>
+<ul>
+<li class="fragment">Because of some network firewall reasons, we cannot <code>pull</code> or <code>push</code> using HTTPS.</li>
+<li class="fragment">Instead we have to use SSH:
+<ul>
+<li class="fragment">Generate a SSH key and passphrase</li>
+<li class="fragment">Associate your SSH public key with your account on Github</li>
+<li class="fragment">Switch your remote URL to the SSH link</li>
+<li class="fragment">Full details: <a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="resources">Resources:</h2>
+<ul>
+<li class="fragment"><a href="https://try.github.io/">https://try.github.io/</a> (AMAZING!)</li>
+<li class="fragment"><a href="https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github/">https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github/</a></li>
+<li class="fragment"><a href="https://help.github.com/articles/set-up-git/">https://help.github.com/articles/set-up-git/</a></li>
+<li class="fragment"><a href="http://www.software-carpentry.org/v5/novice/git/index.html">http://www.software-carpentry.org/v5/novice/git/index.html</a></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="../../../reveal.js/lib/js/head.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'moon', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
