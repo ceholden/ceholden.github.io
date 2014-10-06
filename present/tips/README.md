@@ -12,6 +12,11 @@ Tips of the (hopefully) week for research for my group at BU
     * Current practices - SVN and Git
     * Git on cluster
 + dotfiles - bashrc and aliases
++ Remote utilities
+    * nohup
+    * screen
+    * tmux
+    * vnc
 + 3rd party libraries
     * $H_0$: someone already wrote the thing you need
     * how to find it
