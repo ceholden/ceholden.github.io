@@ -15,7 +15,7 @@ html:	clean $(HTML)
 		@cd $(dir $<); pandoc -t revealjs -i \
 			--standalone \
 			-V revealjs-url=$(RJS) \
-			-V theme=moon -V transition=linear \
+			-V theme=simple -V transition=linear \
 			-o index.html $(notdir $<)
 
 %.pdf:	%.md
