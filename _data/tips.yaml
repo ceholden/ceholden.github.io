@@ -1,0 +1,14 @@
+- title: Week 1
+  publish: yes
+  description: Literature Organization
+  ref: week_1
+
+- title: Week 2
+  publish: yes
+  description: Source Code Revision Systems
+  ref: week_2
+
+- title: Week 3
+  publish: no
+  description: Dotfiles
+  ref: week_3

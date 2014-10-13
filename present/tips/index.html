@@ -1,0 +1,17 @@
+---
+layout: default
+title: Tip of the Week
+---
+
+<div class="posts">
+  {% for tip in site.data.tips %}
+    {% if tip.publish == true %}
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/present/tips/{{ tip.ref }}/">{{ tip.title }}</a>
+        </h1>
+        {{ tip.description }}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
