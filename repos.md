@@ -5,7 +5,7 @@ title: Repositories
 to_add: ['TSTools', 'landsat_preprocess', 'open-geo-tutorial', 'yatsm', 'image_compositor', 'MLRS']
 ---
 
-{% if site.github %}
+{% if site.github.public_repositories %}
   {% assign sorted_repos = site.github.public_repositories | sort: "stargazers_count" %}
 {% else %}
   This section will be filled in when we published on Github (because we'll have access to site.github.*).
