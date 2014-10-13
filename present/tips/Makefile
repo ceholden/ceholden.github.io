@@ -14,6 +14,7 @@ html:	clean $(HTML)
 %.html:	%.md
 		@cd $(dir $<); pandoc -t revealjs -i \
 			--standalone \
+			--highlight-style=zenburn \
 			-V revealjs-url=$(RJS) \
 			-V theme=simple -V transition=linear \
 			-o index.html $(notdir $<)
