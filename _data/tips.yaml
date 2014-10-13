@@ -9,6 +9,6 @@
   ref: week_2
 
 - title: Week 3
-  publish: no
+  publish: yes
   description: Dotfiles
   ref: week_3
