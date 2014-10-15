@@ -1,5 +1,5 @@
 % Tip of the Week
-% Tuesday, October 14th, 2014
+% Tuesday, October 21st, 2014
 
 # Dotfiles
 
