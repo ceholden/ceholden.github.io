@@ -17,6 +17,19 @@ Tips of the (hopefully) week for research for my group at BU
     * screen
     * tmux
     * vnc
++ Workflow management
+    * Needs:
+        - orchestrate tasks
+        - graphs
+        - logging
+        - SGE - qsub stuff
+    * Libraries:
+        - Ruffus
+            - Python decorators to tie functions/etc together
+        - pyutilib.workflow
+        - Spotify's luigi (not usable on SGE?)
+        - COSMOS
+        - doit
 + 3rd party libraries
     * $H_0$: someone already wrote the thing you need
     * how to find it
