@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Repositories
 
 to_add: ['TSTools', 'landsat_preprocess', 'open-geo-tutorial', 'yatsm', 'image_compositor', 'MLRS']

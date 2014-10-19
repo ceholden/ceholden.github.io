@@ -6,27 +6,11 @@
 
   <body>
 
-    <div class="container content">
-      <div class="masthead">
-        <h2 class="masthead-title">
-          <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
+    {% include sidebar.html %}
 
-          {% for page in site.pages_list %}
-              &nbsp;&nbsp;&nbsp;<small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
-          {% endfor %}
-
-          &nbsp;&nbsp;&nbsp;
-          <a href="/atom.xml"><i class="fa fa-rss fa-1x"></i></a>
-
-        </h2>
-      </div>
-
+    <div class="content container">
       {{ content }}
-
-      {% include disqus_comments.html %}
-
-      {% include footer.html %}
-
     </div>
+
   </body>
 </html>
