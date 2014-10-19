@@ -10,6 +10,9 @@ title: Tip of the Week
         <h1 class="post-title">
           <a href="/present/tips/{{ tip.ref }}/">{{ tip.title }}</a>
         </h1>
+        <span class="post-date">
+          <i class="fa fa-calendar"> </i> {{ tip.date | date: "%B %d, %Y" }}
+        </span>
         {{ tip.description }}
       </div>
     {% endif %}
