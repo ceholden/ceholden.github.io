@@ -30,6 +30,14 @@
     + shell prompts
     + functions
 
+## NOT a dotfile
+
+Did you know GEO/SCC file system keeps snapshots of your work?
+
+``` bash
+ls -l .snapshots/
+```
+
 # Tips
 
 # Aliases
@@ -61,7 +69,7 @@ Movement
 
 ## Modules
 
-Not necessarily recommended, but...
+Not necessarily recommended (why?), but...
 
 ``` bash
 host=$(hostname)
@@ -74,6 +82,7 @@ fi
 ## Modules
 
 And `~/.module`:
+
 ``` bash
 module load python/2.7.5
 module load gdal/1.10.0
@@ -206,3 +215,7 @@ In general,
 ## Mine
 
 <https://github.com/ceholden/dotfiles>
+
+## Yours?
+
+If you think of any neat dotfile tricks for GEO, please let me know.

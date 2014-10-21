@@ -81,6 +81,10 @@ code > span.er { color: #c3bf9f; }
 <li class="fragment">functions</li>
 </ul></li>
 </ul>
+</section><section id="not-a-dotfile" class="slide level2">
+<h1>NOT a dotfile</h1>
+<p>Did you know GEO/SCC file system keeps snapshots of your work?</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> -l .snapshots/</code></pre>
 </section></section>
 <section><section id="tips" class="titleslide slide level1"><h1>Tips</h1></section></section>
 <section><section id="aliases" class="titleslide slide level1"><h1>Aliases</h1></section><section id="aliases-1" class="slide level2">
@@ -109,7 +113,7 @@ code > span.er { color: #c3bf9f; }
 </section></section>
 <section><section id="modules" class="titleslide slide level1"><h1>Modules</h1></section><section id="modules-1" class="slide level2">
 <h1>Modules</h1>
-<p>Not necessarily recommended, but...</p>
+<p>Not necessarily recommended (why?), but...</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">host=$(</span><span class="kw">hostname</span><span class="ot">)</span>
 <span class="kw">if [[</span> <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;geo&quot;</span> || <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;scc1&quot;</span> || <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;scc2&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span>
     <span class="kw">.</span> <span class="kw">/usr/local/Modules/default/init/bash</span>
@@ -215,6 +219,9 @@ code > span.er { color: #c3bf9f; }
 <section><section id="dotfiles-1" class="titleslide slide level1"><h1>Dotfiles</h1></section><section id="mine" class="slide level2">
 <h1>Mine</h1>
 <p><a href="https://github.com/ceholden/dotfiles">https://github.com/ceholden/dotfiles</a></p>
+</section><section id="yours" class="slide level2">
+<h1>Yours?</h1>
+<p>If you think of any neat dotfile tricks for GEO, please let me know.</p>
 </section></section>
     </div>
   </div>
