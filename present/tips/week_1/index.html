@@ -10,31 +10,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
     <style type="text/css">code{white-space: pre;}</style>
-    <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #cccccc; background-color: #303030; }
-code > span.kw { color: #f0dfaf; }
-code > span.dt { color: #dfdfbf; }
-code > span.dv { color: #dcdccc; }
-code > span.bn { color: #dca3a3; }
-code > span.fl { color: #c0bed1; }
-code > span.ch { color: #dca3a3; }
-code > span.st { color: #cc9393; }
-code > span.co { color: #7f9f7f; }
-code > span.ot { color: #efef8f; }
-code > span.al { color: #ffcfaf; }
-code > span.fu { color: #efef8f; }
-code > span.er { color: #c3bf9f; }
-    </style>
+<!-- For syntax highlighting using highlight.js-->
+    <link rel="stylesheet" href="../../../reveal.js/lib/css/zenburn.css">
     <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
-  <link rel="stylesheet" media="print" href="../../../reveal.js/css/print/pdf.css" />
-  <!--[if lt IE 9]>
-  <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
-  <![endif]-->
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -68,14 +59,15 @@ code > span.er { color: #c3bf9f; }
 </section>
 <section id="write" class="slide level1">
 <h1>Write:</h1>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Discussion</span>
+<pre class="markdown"><code># Discussion
 Let&#39;s suppose I&#39;m writing a paper and need to cite someone [@Mitchard2013].
 
 I can use equations:
 
 $$ H_{lorey} = \frac{\sum_{i=1}^N {BA}_i h_i}{\sum_{i=1}^N {BA}_i} $$
 
-<span class="fu"># References</span></code></pre>
+# References
+</code></pre>
 </section>
 <section id="export" class="slide level1">
 <h1>Export</h1>
@@ -85,9 +77,9 @@ $$ H_{lorey} = \frac{\sum_{i=1}^N {BA}_i h_i}{\sum_{i=1}^N {BA}_i} $$
 </section>
 <section id="compile-document-to-pdf-or-other" class="slide level1">
 <h1>Compile document to PDF or other</h1>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> --latex-engine xelatex \
-        <span class="kw">--bibliography</span>=<span class="ot">$HOME</span>/Dropbox/Papers/library.bib \
-        <span class="kw">-o</span> test.pdf test.md</code></pre>
+<pre class="bash"><code>pandoc --latex-engine xelatex \
+        --bibliography=$HOME/Dropbox/Papers/library.bib \
+        -o test.pdf test.md</code></pre>
 </section>
 <section class="slide level1">
 
@@ -108,6 +100,7 @@ $$ H_{lorey} = \frac{\sum_{i=1}^N {BA}_i h_i}{\sum_{i=1}^N {BA}_i} $$
     </div>
   </div>
 
+
   <script src="../../../reveal.js/lib/js/head.min.js"></script>
   <script src="../../../reveal.js/js/reveal.min.js"></script>
 
@@ -120,6 +113,7 @@ $$ H_{lorey} = \frac{\sum_{i=1}^N {BA}_i h_i}{\sum_{i=1}^N {BA}_i} $$
         progress: true,
         history: true,
         center: true,
+        slideNumber: true,
         theme: 'simple', // available themes are in /css/theme
         transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
@@ -128,9 +122,10 @@ $$ H_{lorey} = \frac{\sum_{i=1}^N {BA}_i h_i}{\sum_{i=1}^N {BA}_i} $$
           { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 //          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
 //          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
     </script>
-  </body>
+    </body>
 </html>

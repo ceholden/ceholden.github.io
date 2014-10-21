@@ -34,7 +34,7 @@
 
 Did you know GEO/SCC file system keeps snapshots of your work?
 
-``` bash
+```bash
 ls -l .snapshots/
 ```
 
