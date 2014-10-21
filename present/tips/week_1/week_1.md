@@ -1,8 +1,5 @@
----
-
-# Tip of the Week
-
-Tuesday, September 30, 2014
+% Tip of the Week
+% Tuesday, September 30, 2014
 
 ---
 
@@ -63,8 +60,8 @@ pandoc --latex-engine xelatex \
 
 Some references:
 
-+ http://daringfireball.net/projects/markdown/syntax
-+ http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html
-+ http://savethevowels.org/essays/markdowndissertation.html
-+ http://blog.yoavram.com/citations-in-markdown-using-pandoc/
++ <http://daringfireball.net/projects/markdown/syntax>
++ <http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html>
++ <http://savethevowels.org/essays/markdowndissertation.html>
++ <http://blog.yoavram.com/citations-in-markdown-using-pandoc/>
 
