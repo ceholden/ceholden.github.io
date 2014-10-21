@@ -17,6 +17,9 @@ Tips of the (hopefully) week for research for my group at BU
     * screen
     * tmux
     * vnc
+    * SSH-ing directly into SCC nodes:
+        - http://superuser.com/questions/96489/ssh-tunnel-via-multiple-hops
+        - http://superuser.com/questions/107679/forward-ssh-traffic-through-a-middle-machine
 + Workflow management
     * Needs:
         - orchestrate tasks
