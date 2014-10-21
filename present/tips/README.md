@@ -12,6 +12,17 @@ Tips of the (hopefully) week for research for my group at BU
     * Current practices - SVN and Git
     * Git on cluster
 + dotfiles - bashrc and aliases
++ Reproducibility
+    * http://ropensci.org/blog/2014/06/09/reproducibility/
+    * http://theconversation.com/science-is-in-a-reproducibility-crisis-how-do-we-resolve-it-16998
+    * http://spectrum.ieee.org/robotics/artificial-intelligence/machinelearning-maestro-michael-jordan-on-the-delusions-of-big-data-and-other-huge-engineering-efforts
+    * How much of the wood is woody?
+        - WOW! Full analysis, from dataset to PDF
+        - http://richfitz.github.io/wood/
+    * MRV... why reproduce the map if we can just perform accuracy assessment and get bias-corrected area estimate?
+        - In-fighting in the literature about definitions of trees, changes, carbon densities, etc.
+        - More knowledge of behind the scenes --> less pithy arguments?
+        - Small samples means small disagreements can result in large differences in estimates
 + Remote utilities
     * nohup
     * screen
