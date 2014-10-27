@@ -10,7 +10,8 @@ exclude:          ['present/tips/*.md']
 
 # Setup
 title:            Chris Holden
-tagline:          'Remote sensing, Python, Science'
+description:      'Geographer at <a href="http://www.bu.edu/earth/">Boston University</a>'
+tagline:          'Remote sensing, Python, science'
 url:              https://ceholden.github.io/
 baseurl:          /
 paginate:         5
