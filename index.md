@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-I am a PhD candidate in the <a href="http://www.bu.edu/earth/">Department of Earth and Environment</a> at <a href="http://www.bu.edu/">Boston University working for <a href="http://www.bu.edu/earth/people/faculty/curtis-e-woodcock/">Curtis Woodcock</a>. I am interested in:
+I am a PhD candidate in the <a href="http://www.bu.edu/earth/">Department of Earth and Environment</a> at <a href="http://www.bu.edu/">Boston University</a> working for <a href="http://www.bu.edu/earth/people/faculty/curtis-e-woodcock/">Curtis Woodcock</a>. I am interested in:
 
 + Remote sensing of land cover and land use change
 + Influence of vegetation and changes in vegetation on terrestrial carbon cycle
