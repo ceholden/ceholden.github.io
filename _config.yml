@@ -14,10 +14,13 @@ description:      'Geographer at <a href="http://www.bu.edu/earth/">Boston Unive
 tagline:          'Remote sensing, Python, science'
 url:              https://ceholden.github.io/
 baseurl:          /
-paginate:         5
 author:
   name:           Chris Holden
   url:            https://ceholden.github.io/
+
+paginate:         5
+paginate_path: "posts/page:num"
+
 
 disqus_shortname: ceholden
 
