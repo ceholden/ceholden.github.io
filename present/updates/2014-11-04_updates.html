@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Tuesday, November 4th, 2014" />
+  <title>Updates</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+<!-- For syntax highlighting using highlight.js-->
+    <link rel="stylesheet" href="../../../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Updates</h1>
+    <h2 class="author">Tuesday, November 4th, 2014</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section id="algorithm" class="slide level1">
+<h1>Algorithm</h1>
+<ul>
+<li class="fragment">Bugfix in multitemporal mask (<a href="https://github.com/ceholden/yatsm/commit/1d65bc5565039dd0bf35c09c57e058f3aea9940f">commit</a>)</li>
+<li class="fragment">Parameterize multitemporal cloud screening threshold (Later this week)</li>
+<li class="fragment">Parameterize model update frequency in monitoring period (Later this week)</li>
+</ul>
+</section>
+<section id="batch-interface" class="slide level1">
+<h1>Batch interface</h1>
+<p>Option to cache entire rows of timeseries</p>
+<ul>
+<li class="fragment">Profile:
+<ul>
+<li class="fragment">80 CPUs took 6-10 minutes each to read in 1 row initially</li>
+<li class="fragment">SCC/GEO cluster storage cache kicked in</li>
+<li class="fragment">~80 took 15-60 seconds to read in 1 row</li>
+</ul></li>
+<li class="fragment">Should speed up subsequent runs</li>
+</ul>
+</section>
+<section id="tstools" class="slide level1">
+<h1>TSTools</h1>
+<ul>
+<li class="fragment">Approaching 1.0 release
+<ul>
+<li class="fragment">Backend API changes</li>
+<li class="fragment">Bugfixes</li>
+<li class="fragment">No more features!</li>
+<li class="fragment"><a href="https://github.com/ceholden/TSTools/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.0">https://github.com/ceholden/TSTools/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.0</a></li>
+</ul></li>
+<li class="fragment">Live plotter for Python CCDC style algorithm now reads from cache
+<ul>
+<li class="fragment">Near instantaneous read of every pixel in image</li>
+<li class="fragment">Can read saved model results</li>
+</ul></li>
+</ul>
+</section>
+<section id="classification" class="slide level1">
+<h1>Classification</h1>
+<ul>
+<li class="fragment">Completed classifier training command line program</li>
+<li class="fragment">Parameterize any classifier from <a href="http://scikit-learn.org/stable/supervised_learning.html#supervised-learning">scikit-learn</a>
+<ul>
+<li class="fragment">SVM</li>
+<li class="fragment">RandomForest</li>
+<li class="fragment">Logistic Regression</li>
+<li class="fragment">AdaBoost</li>
+<li class="fragment">Naive Bayes</li>
+</ul></li>
+<li class="fragment">Built in KFold crossvalidation diagnostics</li>
+</ul>
+</section>
+<section id="cross-validation" class="slide level1">
+<h1>Cross Validation</h1>
+<ul>
+<li class="fragment">Simple KFold crossvalidation is biased for training data patches
+<ul>
+<li class="fragment">Spatial autocorrelation results in training / testing looking too similar</li>
+</ul></li>
+<li class="fragment">Patch, or &quot;spatial&quot;, KFold cross validation built</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="crossvalidate_n3.png" alt="3 Folds" /><figcaption>3 Folds</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="crossvalidate_n5.png" alt="5 Folds" /><figcaption>5 Folds</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+</section>
+    </div>
+  </div>
+
+
+  <script src="../../../reveal.js/lib/js/head.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+        theme: 'simple', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+//          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
