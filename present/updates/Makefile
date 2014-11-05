@@ -4,7 +4,7 @@ MEXT = md
 SRC = $(wildcard *.$(MEXT))
 ### Location of reveal.js
 RJS = ../../../reveal.js
-RJSTEMPLATE = $(RJS)/revealjs_highlight_template.html
+RJSTEMPLATE = ../revealjs_highlight_template.html
 
 HTML=$(SRC:.md=.html)
 all:	$(PDFS) $(HTML)
