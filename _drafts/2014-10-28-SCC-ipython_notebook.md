@@ -12,6 +12,7 @@ Sketch:
 + Overview:
     * What is IPython notebook
     * Why is it so amazing?
+    * http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
 + How to run on cluster (simple)
     * Module
     * Forwarding port
