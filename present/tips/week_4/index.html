@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Thursday, November 6th, 2014" />
+  <title>Tip of the Week</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+<!-- For syntax highlighting using highlight.js-->
+    <link rel="stylesheet" href="../../../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Tip of the Week</h1>
+    <h2 class="author">Thursday, November 6th, 2014</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section><section id="tip-remote-sensing-utilities" class="titleslide slide level1"><h1>Tip: Remote Sensing Utilities</h1></section></section>
+<section><section id="gdal" class="titleslide slide level1"><h1>GDAL</h1></section><section id="command-line-utilities" class="slide level2">
+<h1>Command Line Utilities</h1>
+<ul>
+<li class="fragment">Useful for almost all preprocessing
+<ul>
+<li class="fragment">Metadata: <code>gdalinfo</code></li>
+<li class="fragment">Reproject: <code>gdalwarp</code></li>
+<li class="fragment">Format conversion: <code>gdal_translate</code></li>
+<li class="fragment">Stack / mosaic: <code>gdal_merge.py</code></li>
+<li class="fragment">Vector to Raster: <code>gdal_rasterize</code></li>
+</ul></li>
+<li class="fragment"><code>module load gdal/1.10.0</code></li>
+<li class="fragment"><a href="http://www.gdal.org/gdal_utilities.html">http://www.gdal.org/gdal_utilities.html</a></li>
+</ul>
+</section><section id="api" class="slide level2">
+<h1>API</h1>
+<p>Write your own code? Use GDAL API:</p>
+<ul>
+<li class="fragment">Python
+<ul>
+<li class="fragment"><code>module load gdal/1.10.0</code> (loads <code>python/2.7.5</code>)</li>
+<li class="fragment"><code>from osgeo import gdal</code></li>
+</ul></li>
+<li class="fragment">R (via <code>rgdal</code> and <code>raster</code> packages)
+<ul>
+<li class="fragment"><code>module load R_earth/3.1.0</code></li>
+<li class="fragment"><code>library(raster)</code></li>
+</ul></li>
+<li class="fragment">C/C++:
+<ul>
+<li class="fragment"><code>module load gdal/1.10.0</code></li>
+<li class="fragment"><code>#include &quot;gdal.h&quot;</code></li>
+<li class="fragment"><code>GDAL_LIB</code> and <code>GDAL_INC</code> paths</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="ogr" class="titleslide slide level1"><h1>OGR</h1></section><section id="command-line-utilities-1" class="slide level2">
+<h1>Command Line Utilities</h1>
+<ul>
+<li class="fragment"><code>ogrinfo</code>
+<ul>
+<li class="fragment">Basic information: <code>ogrinfo -so -al vector.shp</code></li>
+<li class="fragment">Simple queries: <code>ogrinfo -al -where &quot;FEATURE &gt; 5&quot; vector.shp</code></li>
+<li class="fragment">SQL for more advanced queries (<code>-sql</code>)</li>
+<li class="fragment">Combine with <code>grep</code>, <code>wc</code>, etc... to quickly summarize vector data</li>
+</ul></li>
+<li class="fragment"><code>ogr2ogr</code>
+<ul>
+<li class="fragment">Format conversion: <code>ogr2ogr -f KML vector.kml vector.shp</code></li>
+<li class="fragment">Reproject: <code>ogr2ogr -t_srs &quot;EPSG:4326&quot; vector_wgs84.shp vector.shp</code></li>
+<li class="fragment">Merge: <code>ogr2ogr -append combined.shp part2.shp</code></li>
+</ul></li>
+<li class="fragment"><a href="http://www.gdal.org/ogr_utilities.html">http://www.gdal.org/ogr_utilities.html</a></li>
+</ul>
+</section></section>
+<section><section id="qgis" class="titleslide slide level1"><h1>QGIS</h1></section><section id="qgis-v2.0" class="slide level2">
+<h1>QGIS v2.0</h1>
+<ul>
+<li class="fragment">On par with ArcGIS in some regards, better than in most.</li>
+<li class="fragment">Built on GDAL/OGR</li>
+<li class="fragment">QGIS vs ENVI</li>
+<li class="fragment">Plugin architecture</li>
+<li class="fragment"><code>module load qgis/2.0.1</code></li>
+</ul>
+</section></section>
+<section><section id="landsat-data" class="titleslide slide level1"><h1>Landsat Data</h1></section><section id="download" class="slide level2">
+<h1>Download</h1>
+<p><a href="http://earthexplorer.usgs.gov/bulk/">Bulk Download Application</a> for L1 products:</p>
+<ul>
+<li class="fragment"><code>module load bda/1.1.2</code></li>
+<li class="fragment">Use <code>qsh</code> session for big downloads -- very CPU intensive!</li>
+<li class="fragment">Updating is grief inducing... ask IT if update is required</li>
+</ul>
+</section><section id="preprocess" class="slide level2">
+<h1>Preprocess</h1>
+<p>Parallel SR / Fmask for Landsat 4, 5, 7, and 8 in one command:</p>
+<ul>
+<li class="fragment"><code>module load batch_landsat/v4</code></li>
+<li class="fragment"><code>landsatPrepSubmit.sh -h</code></li>
+<li class="fragment">Surface reflectance only suggested for Landsat 8 (as of Nov 6th, 2014)
+<ul>
+<li class="fragment">LEDAPS for Landsat 4/5/7 from ESPA</li>
+<li class="fragment">Landsat 8 version still in development</li>
+<li class="fragment">We have ancillary data until 2014 DOY 282</li>
+</ul></li>
+<li class="fragment">See <a href="https://github.com/ceholden/landsat_preprocess">tutorial</a> from May 2014</li>
+</ul>
+</section><section id="visualization" class="slide level2">
+<h1>Visualization</h1>
+<p>Timeseries interactive visualization in QGIS:</p>
+<ul>
+<li class="fragment">&quot;Stable&quot; - <code>module load CCDCTools/latest</code></li>
+<li class="fragment">&quot;Development&quot; - <code>module load CCDCTools/_beta</code></li>
+</ul>
+</section></section>
+<section><section id="version-control-system-vcs" class="titleslide slide level1"><h1>Version control system (VCS)</h1></section><section id="git" class="slide level2">
+<h1>Git</h1>
+<ul>
+<li class="fragment">Usable version on GEO/SCC</li>
+<li class="fragment">Cannot push / pull using HTTPS</li>
+<li class="fragment">Must generate crypto keypair and give Github your public key</li>
+<li class="fragment"><a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></li>
+</ul>
+</section></section>
+<section><section id="reproducibility" class="titleslide slide level1"><h1>Reproducibility</h1></section><section id="ipython-notebook" class="slide level2">
+<h1>IPython Notebook</h1>
+<p>Use Python? Want to share or explain your work, or just save and document your explorations?</p>
+<ul>
+<li class="fragment"><a href="http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">Nature: Interactive notebooks: Sharing the code</a> (doi:10.1038/515151a)</li>
+<li class="fragment">On GEO:
+<ul>
+<li class="fragment"><code>module load python/2.7.5</code></li>
+<li class="fragment"><code>ipython notebook</code></li>
+<li class="fragment">Remember the port it uses!</li>
+</ul></li>
+<li class="fragment">Locally:
+<ul>
+<li class="fragment"><code>ssh -L [local port]:localhost:[remote port] [user]@geo.bu.edu</code></li>
+<li class="fragment">Visit localhost:[port] in browser</li>
+</ul></li>
+<li class="fragment"><a href="http://ipython.org/ipython-doc/1/interactive/public_server.html">Secure your notebook session</a></li>
+</ul>
+</section><section id="knitr" class="slide level2">
+<h1>KnitR</h1>
+<p>Installed as part of RStudio!</p>
+</section></section>
+    </div>
+  </div>
+
+
+  <script src="../../../reveal.js/lib/js/head.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        width: 1600,
+        height: 900,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+        theme: 'simple', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+//          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

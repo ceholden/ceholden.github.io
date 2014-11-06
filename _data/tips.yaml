@@ -15,3 +15,9 @@
   description: Dotfiles
   date: 2014-10-21
   ref: week_3
+
+- title: Week 4
+  publish: yes
+  description: GEO/SCC Remote Sensing Tools
+  date: 2014-11-06
+  ref: week_4
