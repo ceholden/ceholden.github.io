@@ -1,0 +1,240 @@
+% Landsat timeseries classification for monitoring land cover change and transitions
+% Chris Holden
+% December 12, 2014
+
+# Why?
+
+## 
+
+<img src="media/IPCC_AR5_net_LCLUC.png" height="800">
+<br>
+
+IPCC 5th Assessment Report
+
+## Why?
+
+* Proxy for biogeochemical processes and energy balance
+* Competition among land uses
+* Subject to continue changing
+
+# Land Cover
+
+## How: traditionally?
+
+* Passive optical measurement of radiation
+* Stable classes inferred from spectral and spatial context
+* Change assessed using several "snapshots" in time
+    - Change between stable classes
+    - Epochs (*e.g.*, ~1990 - 2000, 2000 - 2010)
+
+# Land Cover
+
+## How: recently?
+
+<img src="media/2014_kennedy_remote_sensing_era.png" height=500 width=600)
+<br>
+
+Kennedy *et al.* 2014 
+
+"Bring an ecological view of change to Landsat-based remote sensing"
+
+## Why not use all the data?
+<br>
+<br>
+
+* **Some of the data**
+    * Vegetation Change Tracker (VCT) (Huang *et al* 2010)
+    * LandTrendr (Kennedy *et al* 2010)
+    * Hansen *et al* 2013
+* **Most of the data**
+    * Break detection For Additive and Seasonal Trends (BFAST) (Verbesselt *et al* 2012)
+    * Continuous Change Detection and Classification (CCDC) (Zhu and Woodcock 2014)
+
+## These algorithms have (mostly) only been applied to forests conversion
+<br>
+
+# Example
+
+##
+
+<img src="media/mass/1_pontus_2obs.jpg" height=500>
+
+NIR reflectance - 2 observations
+
+##
+
+<img src="media/mass/3_pontus_yearly.jpg" height=500>
+
+NIR reflectance - growing season observations
+
+## 
+
+<img src="media/mass/4_pontus_summer_winter.jpg" height=500>
+
+NIR reflectance - growing and leaf-off observations
+
+##
+
+<img src="media/mass/5_pontus_alldata.jpg" height=500>
+
+NIR reflectance - all available\* observations
+
+##
+
+<img src="media/mass/6_pontus_all_model.jpg" height=500>
+<br>
+
+NIR reflectance - CCDC model fit
+
+## 
+
+<img src="media/mass/7_pontus_vhr.png" height=700>
+
+# Research Questions
+
+##
+
+<div style="font-size: 1.25em">
+1. What "spectro-temporal" signatures are most important for separating land cover classes?<br><br>
+2. Can transitional subclasses be reliably identified?
+</div>
+
+# Land Cover Trends
+
+##
+<img src="media/LCT_ecoregions.jpg" height=700>
+
+**Land Cover Trends Ecoregions**
+
+## Land Cover Trends
+
+<img src="media/LCT_classes.jpg" height="400" width="800">
+
+**Epochs:** 1972, 1980, 1986, 1992, 2000
+
+## Land Cover Trends
+
+is an incredible product, but...
+<br>
+<br>
+
+* When is the next updated map?
+* What about the years between maps?
+* What are the mapped classes doing?
+* How does this relate to ecological processes?
+
+---
+
+### Stand Age / Regrowth Trajectory
+
+* <span style="color:red">Non-Forest</span> in 1992 to <span style="color:green">Forest</span> in 2000
+* <span style="color:red">Non-Forest</span> in 1986 to <span style="color:green">Forest</span> in 2000
+* <span style="color:red">Non-Forest</span> in 1980 to <span style="color:green">Forest</span> in 2000
+* <span style="color:red">Non-Forest</span> in 1972 to <span style="color:green">Forest</span> in 2000
+
+# "Spectro-Temporal" signatures
+
+##
+
+<img src="media/speclab_usgs_veg.gif" height="750">
+
+<http://speclab.cr.usgs.gov/>
+
+
+# Colorado
+
+## Forests
+
+##
+
+<img src="media/signatures/p034r032_F_NF_intercept.png" width="1250">
+
+##
+
+<img src="media/signatures/p034r032_F_NF_slope.png" width="1250">
+
+##
+
+<img src="media/p034r032_b5_beetle_nomodel.png" height="750">
+
+Beetle Infestation
+
+##
+
+<img src="media/p034r032_b5_beetle_model.png" height="700">
+
+Beetle Infestation
+
+## Agriculture and Grass/Shrubs
+
+##
+
+<img src="media/signatures/p034r032_ag_herb_intercept.png" width="1250">
+
+## 
+
+<img src="media/signatures/p034r032_ag_herb_rmse.png" width="1250">
+
+## 
+
+<img src="media/signatures/p034r032_ag_herb_amplitude1.png" width="1250">
+
+##
+
+<img src="media/signatures/p034r032_ag_herb_amplitude2.png" width="1250">
+
+# Central Valley, California
+
+## 
+
+<img src="media/p043r034/P043R034_GoogleMaps.png" height="800">
+
+##
+
+<img src="media/p043r034/LC_2000.png" height="800">
+
+##
+
+<img src="media/p043r034/LC_2010.png" height="800">
+
+## Forests
+
+##
+
+<img src="media/signatures/p043r034_F_NF_intercept.png" width="1250">
+
+## 
+
+<img src="media/signatures/p043r034_F_NF_slope.png" width="1250">
+
+# Florida
+
+## Agriculture, Grass/Shrubs, and Development
+
+##
+
+<img src="media/signatures/p016r041_ag_herb_intercept.png" width="1250">
+
+##
+
+<img src="media/signatures/p016r041_ag_herb_amp1.png" width="1250">
+
+##
+<img src="media/signatures/p016r041_ag_herb_amp2.png" width="1250">
+
+
+# Conclusions
+
+##
+
+1. Linear regression intercepts behave similarly to single date spectral reflectances
+2. Seasonal dynamics and large temporal variability help distinguish agriculture from unmanaged fields
+3. Regrowth signal of forest disturbance persists after decades
+
+# Video
+
+##
+
+<video height="800" controls="controls">
+<source type="video/webm" src="media/movie_long.webm"/>
+</video>
