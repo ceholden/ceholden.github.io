@@ -8,12 +8,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../../reveal.js/css/theme/default.css" id="theme">
    
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../../reveal.js/css/theme/simple.css" id="theme">
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
         if (window.location.search.match(/print-pdf/gi)) {
@@ -21,7 +21,7 @@
        
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = 'reveal.js/css/print/pdf.css';
+            link.href = '../../reveal.js/css/print/pdf.css';
             document.getElementsByTagName('head')[0].appendChild(link);
         }
     </script>
@@ -111,8 +111,12 @@
           <p><a href="http://www.ctahr.hawaii.edu/miuralab/projects/makaha/intro_RS.html">http://www.ctahr.hawaii.edu/miuralab/projects/makaha/intro_RS.html</a></p>
         </section>
         <section>
-          <img src="http://upload.wikimedia.org/wikipedia/commons/7/7c/Atmospheric_Transmission.png" height=700>
+          <img src="http://upload.wikimedia.org/wikipedia/commons/7/7c/Atmospheric_Transmission.png" height="700">
           <p><a href="http://upload.wikimedia.org/wikipedia/commons/7/7c/Atmospheric_Transmission.png">Wikipedia</a></p>
+        </section>
+        <section>
+          <img src="http://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg" height="700">
+          <p><a href="http://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg">landsat.gsfc.nasa.gov</a></p>
         </section>
         <section>
           <h2>Atmospheric Correction</h2>
@@ -160,8 +164,8 @@
   </div> 
 
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="../../reveal.js/lib/js/head.min.js"></script>
+    <script src="../../reveal.js/js/reveal.min.js"></script>
     <script>
     // Full list of configuration options available here:
     // https://github.com/hakimel/reveal.js#configuration
@@ -179,34 +183,34 @@
   
       // Optional libraries used to extend on reveal.js
       dependencies: [{
-          src: 'reveal.js/lib/js/classList.js',
+          src: '../../reveal.js/lib/js/classList.js',
           condition: function () {
               return !document.body.classList;
           }
       }, {
-          src: 'reveal.js/plugin/markdown/marked.js',
+          src: '../../reveal.js/plugin/markdown/marked.js',
           condition: function () {
               return !!document.querySelector('[data-markdown]');
           }
       }, {
-          src: 'reveal.js/plugin/markdown/markdown.js',
+          src: '../../reveal.js/plugin/markdown/markdown.js',
           condition: function () {
               return !!document.querySelector('[data-markdown]');
           }
       }, {
-          src: 'reveal.js/plugin/highlight/highlight.js',
+          src: '../../reveal.js/plugin/highlight/highlight.js',
           async: true,
           callback: function () {
               hljs.initHighlightingOnLoad();
           }
       }, {
-          src: 'reveal.js/plugin/zoom-js/zoom.js',
+          src: '../../reveal.js/plugin/zoom-js/zoom.js',
           async: true,
           condition: function () {
               return !!document.body.classList;
           }
       }, {
-          src: 'reveal.js/plugin/notes/notes.js',
+          src: '../../reveal.js/plugin/notes/notes.js',
           async: true,
           condition: function () {
               return !!document.body.classList;
