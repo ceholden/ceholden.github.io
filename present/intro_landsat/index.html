@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Introduction to Landsat</title>
+    <meta name="description" content="Introduction to Landsat">
+    <meta name="author" content="Chris Holden">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+   
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+       
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'reveal.js/css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+   
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+   
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1 class="title">Intro to Landsat</h1>
+        <h2 class="author">Chris Holden</h2>
+        <h3 class="date">Thursday, March 26, 2015</h3>
+      </section>
+      <section>
+        <section>
+          <h2>History</h2>
+          <ul>
+            <li class="fragment">1972 - 1983: Landsat 1-3 with Multispectral Scanner (MSS)</li>
+            <li class="fragment">1982 - 2013: Landsat 4-5 with Thematic Mapper (TM)</li>
+            <li class="fragment">1999 - present: Landsat 7 with Enhanced Thematic Mapper+ (ETM+)</li>
+            <li class="fragment">2013 - present: Landsat 8 with Operational Land Imager (OLI)</li>
+          </ul>
+        </section>
+        <section>
+          <img src="media/L8-program_timeline.png" height="600">
+          <a href="http://landsat.gsfc.nasa.gov/">http://landsat.gsfc.nasa.gov/</a>
+        </section>
+        <section>
+          <h2>Receiving Stations</h2>
+          <ul>
+            <li class="fragment">Landsat MSS/TM had limited onboard tape archive</li>
+            <li class="fragment">Beam down data as it is acquired</li>
+            <li class="fragment">International receiving stations</li>
+            <li class="fragment">Landsat acquisition strategy</li>
+          </ul>
+        </section>
+        <section>
+          <img src="media/draeger_et_al_1997_receiving.png">
+          <h3>Draeger <i>et al.</i>, 1997</h3>
+        </section>
+        <section>
+          <img src="media/CMS_study_nimages.png" height="700">
+        </section>
+        <section>
+          <img src="media/p012r029_nobs_plot.png" height="700">
+          <h3>Maine</h3>
+        </section>
+        <section>
+          <img src="media/p043r034_nobs_plot.png" height="700">
+          <h3>Central Valley, California</h3>
+        </section>
+        <section>
+          <img src="media/p022r049_nobs_plot.png" height="700">
+          <h3>Chiapas, Mexico</h3>
+        </section>
+        <section>
+          <img src="media/p010r055_nobs_plot.png" height="700">
+          <h3>Cordoba, Colombia</h3>
+        </section>
+        <section>
+          <img src="media/p003r069_nobs_plot.png" height="700">
+          <h3>Ucayali, Peru</h3>
+        </section>
+        <section>
+          <img src="media/p125r051_nobs_plot.png" height="700">
+          <h3>Cambodia</h3>
+        </section>
+        <section>
+          <img src="media/p022r049_map_nobs.png" height="700">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Measurements</h2>
+          <ul>
+            <li class="fragment">"Passive Optical" remote sensing</li>
+            <li class="fragment">Landsat, MODIS, AVHRR, Quickbird, WorldView-2, etc</li>
+            <li class="fragment">Digital number, radiance, reflectance</li>
+          </ul>
+        </section>
+        <section>
+          <img src="http://www.ctahr.hawaii.edu/miuralab/projects/makaha/assets/SolarRad_LandsatUSGS.gif">
+          <p><a href="http://www.ctahr.hawaii.edu/miuralab/projects/makaha/intro_RS.html">http://www.ctahr.hawaii.edu/miuralab/projects/makaha/intro_RS.html</a></p>
+        </section>
+        <section>
+          <img src="http://upload.wikimedia.org/wikipedia/commons/7/7c/Atmospheric_Transmission.png" height=700>
+          <p><a href="http://upload.wikimedia.org/wikipedia/commons/7/7c/Atmospheric_Transmission.png">Wikipedia</a></p>
+        </section>
+        <section>
+          <h2>Atmospheric Correction</h2>
+          <ul>
+            <li class="fragment">Data distributed as "Digital Numbers"</li>
+            <li class="fragment">Convert DNs to radiance using linear relation</li>
+            <li class="fragment">Convert TOA radiance to TOA reflectance</li>
+            <li class="fragment">Simulate effects of atmosphere and correct TOA reflectance to surface reflectance</li>
+          </ul>
+        </section>
+        <section>
+          <img src="media/espa_cdr.png">
+          <p><a href="espa.cr.usgs.gov">espa.cr.usgs.gov</a></p>
+        </section>
+        <section>
+          <h2>Vegetation Reflectance</h2>
+          <img src="http://speclab.cr.usgs.gov/PAPERS/tetracorder/FIGURES/fig15-3.gif" height=700>
+          <p><a href="http://speclab.cr.usgs.gov/PAPERS/tetracorder/FIGURES/fig15-3.gif">USGS SpecLab</a></p>
+        </section>
+        <section>
+          <h2>Vegetation Reflectance</h2>
+          <img src="http://www.gov.scot/Resource/Img/290944/0083970.gif" height=700>
+          <p><a href="http://www.gov.scot/Resource/Img/290944/0083970.gif">gov.scot</a></p>
+        </section>
+        <section>
+          <h2>Resolution</h2>
+          <ul>
+            <li class="fragment">30x30m pixels</li>
+            <li class="fragment">11 Landsat pixels in 1ha</li>
+            <li class="fragment">6.25ha in one 250m MODIS pixel</li>
+            <li class="fragment">100ha in one 1000m MODIS pixel</li>
+            <li class="fragment">"globally consistent characterizations that have local relevance and utility" (Hansen <i>et al.</i> 2013)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Resolution</h2>
+          <img src="media/olofsson_modis_landsat_pix.png" height=700>
+          <p>Olofsson, Holden, and Woodcock, submitted</p>
+        </section>
+      </section>
+      <section>
+        <h2>Questions?</h2>
+      <section>
+    </div>
+  </div> 
+
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+  width: 1600,
+  height: 900,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+  slideNumber: true,
+   
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+  
+      // Optional libraries used to extend on reveal.js
+      dependencies: [{
+          src: 'reveal.js/lib/js/classList.js',
+          condition: function () {
+              return !document.body.classList;
+          }
+      }, {
+          src: 'reveal.js/plugin/markdown/marked.js',
+          condition: function () {
+              return !!document.querySelector('[data-markdown]');
+          }
+      }, {
+          src: 'reveal.js/plugin/markdown/markdown.js',
+          condition: function () {
+              return !!document.querySelector('[data-markdown]');
+          }
+      }, {
+          src: 'reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+              hljs.initHighlightingOnLoad();
+          }
+      }, {
+          src: 'reveal.js/plugin/zoom-js/zoom.js',
+          async: true,
+          condition: function () {
+              return !!document.body.classList;
+          }
+      }, {
+          src: 'reveal.js/plugin/notes/notes.js',
+          async: true,
+          condition: function () {
+              return !!document.body.classList;
+          }
+      }]
+    });
+  </script>
+</body>
+</html>
