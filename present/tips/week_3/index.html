@@ -3,29 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Tuesday, October 21st, 2014" />
+  <meta name="author" content="Tuesday, October 21st, 2014">
   <title>Tip of the Week</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-<!-- For syntax highlighting using highlight.js-->
-    <link rel="stylesheet" href="../../../reveal.js/lib/css/zenburn.css">
-    <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '../../../reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
-    <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../reveal.js/css/print/pdf.css' : '../../../reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -57,7 +90,7 @@
 <ul>
 <li class="fragment">~/.bashrc executed when using interactive shell that is <strong>not</strong> a <em>login shell</em></li>
 <li class="fragment">~/.bash_profile executed only during <em>login shell</em></li>
-<li class="fragment"><a href="http://hacktux.com/bash/bashrc/bash_profile">http://hacktux.com/bash/bashrc/bash_profile</a></li>
+<li class="fragment"><a href="http://hacktux.com/bash/bashrc/bash_profile" class="uri">http://hacktux.com/bash/bashrc/bash_profile</a></li>
 </ul>
 </section><section id="bashrc" class="slide level2">
 <h1>.bashrc</h1>
@@ -75,7 +108,7 @@
 </section><section id="not-a-dotfile" class="slide level2">
 <h1>NOT a dotfile</h1>
 <p>Did you know GEO/SCC file system keeps snapshots of your work?</p>
-<pre class="bash"><code>ls -l .snapshots/</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> -l .snapshots/</code></pre></div>
 </section></section>
 <section><section id="tips" class="titleslide slide level1"><h1>Tips</h1></section></section>
 <section><section id="aliases" class="titleslide slide level1"><h1>Aliases</h1></section><section id="aliases-1" class="slide level2">
@@ -105,88 +138,88 @@
 <section><section id="modules" class="titleslide slide level1"><h1>Modules</h1></section><section id="modules-1" class="slide level2">
 <h1>Modules</h1>
 <p>Not necessarily recommended (why?), but...</p>
-<pre class="bash"><code>host=$(hostname)
-if [[ &quot;$host&quot; == &quot;geo&quot; || &quot;$host&quot; == &quot;scc1&quot; || &quot;$host&quot; == &quot;scc2&quot; ]]; then
-    . /usr/local/Modules/default/init/bash
-    source ~/.module
-fi</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">host=$(</span><span class="kw">hostname</span><span class="ot">)</span>
+<span class="kw">if [[</span> <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;geo&quot;</span> || <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;scc1&quot;</span> || <span class="st">&quot;</span><span class="ot">$host</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;scc2&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span>
+    <span class="kw">.</span> <span class="kw">/usr/local/Modules/default/init/bash</span>
+    <span class="kw">source</span> ~/.module
+<span class="kw">fi</span></code></pre></div>
 </section><section id="modules-2" class="slide level2">
 <h1>Modules</h1>
 <p>And <code>~/.module</code>:</p>
-<pre class="bash"><code>module load python/2.7.5
-module load gdal/1.10.0
-module load R_earth/3.1.0
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">module</span> load python/2.7.5
+<span class="kw">module</span> load gdal/1.10.0
+<span class="kw">module</span> load R_earth/3.1.0
 
-module load CCDCTools/_beta</code></pre>
+<span class="kw">module</span> load CCDCTools/_beta</code></pre></div>
 </section></section>
 <section><section id="path" class="titleslide slide level1"><h1>PATH</h1></section><section id="path-1" class="slide level2">
 <h1>PATH</h1>
 <p>Call your own scripts or programs:</p>
-<pre class="bash"><code>if [ -d &quot;$HOME/bin&quot; ]; then
-    PATH=&quot;$PATH:$HOME/bin&quot;
-fi</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">if [</span> <span class="ot">-d</span> <span class="st">&quot;</span><span class="ot">$HOME</span><span class="st">/bin&quot;</span><span class="kw"> ]</span>; <span class="kw">then</span>
+    <span class="ot">PATH=</span><span class="st">&quot;</span><span class="ot">$PATH</span><span class="st">:</span><span class="ot">$HOME</span><span class="st">/bin&quot;</span>
+<span class="kw">fi</span></code></pre></div>
 </section></section>
 <section><section id="shell-prompts" class="titleslide slide level1"><h1>Shell Prompts</h1></section><section id="shell-prompts-1" class="slide level2">
 <h1>Shell Prompts</h1>
 <p>Current prompt:</p>
-<pre class="bash"><code>ceholden@ceholden-lhome:~/Documents/ceholden.github.io/present/tips$ echo $PS1
-\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ceholden@ceholden-lhome</span>:~/Documents/ceholden.github.io/present/tips$ echo <span class="ot">$PS1</span>
+<span class="dt">\[</span>\<span class="kw">e</span>]0<span class="kw">;</span>\<span class="kw">u@</span>\h: \w\a<span class="dt">\]</span><span class="ot">${debian_chroot:+</span>(<span class="ot">$debian_chroot</span>)<span class="ot">}</span>\u@\h:\w<span class="dt">\$</span></code></pre></div>
 </section><section id="shell-prompts-2" class="slide level2">
 <h1>Shell Prompts</h1>
-<pre class="bash"><code>export PS1=&quot;\[$(tput setaf 2)\]\u@\h:\W\\$ \[$(tput sgr0)\]&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">PS1=</span><span class="st">&quot;\[</span><span class="ot">$(</span><span class="kw">tput</span> setaf 2<span class="ot">)</span><span class="st">\]\u@\h:\W</span><span class="dt">\\</span><span class="st">$ \[</span><span class="ot">$(</span><span class="kw">tput</span> sgr0<span class="ot">)</span><span class="st">\]&quot;</span></code></pre></div>
 </section><section id="shell-prompts-3" class="slide level2">
 <h1>Shell Prompts</h1>
-<p>See <a href="http://bashrcgenerator.com/">http://bashrcgenerator.com/</a> or <a href="https://www.kirsle.net/wizards/ps1.html">https://www.kirsle.net/wizards/ps1.html</a> for generators.</p>
+<p>See <a href="http://bashrcgenerator.com/" class="uri">http://bashrcgenerator.com/</a> or <a href="https://www.kirsle.net/wizards/ps1.html" class="uri">https://www.kirsle.net/wizards/ps1.html</a> for generators.</p>
 </section></section>
 <section><section id="functions" class="titleslide slide level1"><h1>Functions</h1></section><section id="functions-1" class="slide level2">
 <h1>Functions</h1>
 <p>&quot;abusers&quot;</p>
-<pre class="bash"><code>function abusers() {
-    qstat | awk &#39;NR &gt; 2 { if ($5 == &quot;r&quot;) print $4 &quot; &quot; $9 }&#39; | sort | \
-        awk &#39;{ sums[$1] += $2} END \
-        { for (i in sums) printf(&quot;%s %s\n&quot;, i, sums[i])}&#39; | \
-        sort -k2 -n -r
-}
-export -f abusers</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">function</span><span class="fu"> abusers()</span> <span class="kw">{</span>
+    <span class="kw">qstat</span> <span class="kw">|</span> <span class="kw">awk</span> <span class="st">&#39;NR &gt; 2 { if ($5 == &quot;r&quot;) print $4 &quot; &quot; $9 }&#39;</span> <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">\</span>
+        <span class="kw">awk</span> <span class="st">&#39;{ sums[$1] += $2} END \</span>
+<span class="st">        { for (i in sums) printf(&quot;%s %s\n&quot;, i, sums[i])}&#39;</span> <span class="kw">|</span> <span class="kw">\</span>
+        <span class="kw">sort</span> -k2 -n -r
+<span class="kw">}</span>
+<span class="kw">export</span> -f <span class="ot">abusers</span></code></pre></div>
 </section><section id="functions-2" class="slide level2">
 <h1>Functions</h1>
 <p>Cluster job ID matching pattern...</p>
-<pre class="bash"><code>function jidof() {
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">function</span><span class="fu"> jidof()</span> <span class="kw">{</span>
 
-    pattern=$1
+    <span class="ot">pattern=$1</span>
 
-    jid=&quot;&quot;
-    for j in $(qstat -u $USER | grep $pattern | awk &#39;{ print $1 }&#39;); do
-        jid=&quot;$jid $j&quot;
-    done
-    echo &quot;$jid&quot;
-}
-export -f jidof</code></pre>
+    <span class="ot">jid=</span><span class="st">&quot;&quot;</span>
+    <span class="kw">for</span> <span class="kw">j</span> in <span class="ot">$(</span><span class="kw">qstat</span> -u <span class="ot">$USER</span> <span class="kw">|</span> <span class="kw">grep</span> <span class="ot">$pattern</span> <span class="kw">|</span> <span class="kw">awk</span> <span class="st">&#39;{ print $1 }&#39;</span><span class="ot">)</span><span class="kw">;</span> <span class="kw">do</span>
+        <span class="ot">jid=</span><span class="st">&quot;</span><span class="ot">$jid</span><span class="st"> </span><span class="ot">$j</span><span class="st">&quot;</span>
+    <span class="kw">done</span>
+    <span class="kw">echo</span> <span class="st">&quot;</span><span class="ot">$jid</span><span class="st">&quot;</span>
+<span class="kw">}</span>
+<span class="kw">export</span> -f <span class="ot">jidof</span></code></pre></div>
 </section><section id="functions-3" class="slide level2">
 <h1>Functions</h1>
-<p>GDAL - from <a href="https://github.com/dwtkns/gdal-cheat-sheet">https://github.com/dwtkns/gdal-cheat-sheet</a></p>
-<pre class="bash"><code>function gdal_extent() {
-    if [ -z &quot;$1&quot; ]; then
-        echo &quot;Missing arguments. Syntax:&quot;
-        echo &quot;  gdal_extent &lt;input_raster&gt;&quot;
-        return
-    fi
-    EXTENT=$(gdalinfo $1 |\
-        grep &quot;Upper Left\|Lower Right&quot; |\
-        sed &quot;s/Upper Left  //g;s/Lower Right //g;s/).*//g&quot; |\
-        tr &quot;\n&quot; &quot; &quot; |\
-        sed &#39;s/ *$//g&#39; |\
-        tr -d &quot;[(]&quot; | tr &quot;,&quot; &quot; &quot;)
-    echo -n &quot;$EXTENT&quot;
-}
-export -f gdal_extent</code></pre>
+<p>GDAL - from <a href="https://github.com/dwtkns/gdal-cheat-sheet" class="uri">https://github.com/dwtkns/gdal-cheat-sheet</a></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">function</span><span class="fu"> gdal_extent()</span> <span class="kw">{</span>
+    <span class="kw">if [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="ot">$1</span><span class="st">&quot;</span><span class="kw"> ]</span>; <span class="kw">then</span>
+        <span class="kw">echo</span> <span class="st">&quot;Missing arguments. Syntax:&quot;</span>
+        <span class="kw">echo</span> <span class="st">&quot;  gdal_extent &lt;input_raster&gt;&quot;</span>
+        <span class="kw">return</span>
+    <span class="kw">fi</span>
+    <span class="ot">EXTENT=$(</span><span class="kw">gdalinfo</span> <span class="ot">$1</span> <span class="kw">|\</span>
+        <span class="kw">grep</span> <span class="st">&quot;Upper Left\|Lower Right&quot;</span> <span class="kw">|\</span>
+        <span class="kw">sed</span> <span class="st">&quot;s/Upper Left  //g;s/Lower Right //g;s/).*//g&quot;</span> <span class="kw">|\</span>
+        <span class="kw">tr</span> <span class="st">&quot;\n&quot;</span> <span class="st">&quot; &quot;</span> <span class="kw">|\</span>
+        <span class="kw">sed</span> <span class="st">&#39;s/ *$//g&#39;</span> <span class="kw">|\</span>
+        <span class="kw">tr</span> -d <span class="st">&quot;[(]&quot;</span> <span class="kw">|</span> <span class="kw">tr</span> <span class="st">&quot;,&quot;</span> <span class="st">&quot; &quot;</span><span class="ot">)</span>
+    <span class="kw">echo</span> -n <span class="st">&quot;</span><span class="ot">$EXTENT</span><span class="st">&quot;</span>
+<span class="kw">}</span>
+<span class="kw">export</span> -f <span class="ot">gdal_extent</span></code></pre></div>
 </section></section>
 <section><section id="git" class="titleslide slide level1"><h1>Git</h1></section><section id="git-1" class="slide level2">
 <h1>Git</h1>
 <p>After doing so much work, why not back up your dotfiles?</p>
 </section><section id="git-2" class="slide level2">
 <h1>Git</h1>
-<p>Very popular practice - <a href="http://dotfiles.github.io/">http://dotfiles.github.io/</a></p>
+<p>Very popular practice - <a href="http://dotfiles.github.io/" class="uri">http://dotfiles.github.io/</a></p>
 <ul>
 <li class="fragment">Steal/borrow/get inspired by others</li>
 <li class="fragment">Sync across computers</li>
@@ -205,11 +238,11 @@ export -f gdal_extent</code></pre>
 </section><section id="git-4" class="slide level2">
 <h1>Git</h1>
 <p>&quot;Homeshick&quot; - makes symbolic linking of dotfiles easy!</p>
-<p><a href="https://github.com/andsens/homeshick">https://github.com/andsens/homeshick</a></p>
+<p><a href="https://github.com/andsens/homeshick" class="uri">https://github.com/andsens/homeshick</a></p>
 </section></section>
 <section><section id="dotfiles-1" class="titleslide slide level1"><h1>Dotfiles</h1></section><section id="mine" class="slide level2">
 <h1>Mine</h1>
-<p><a href="https://github.com/ceholden/dotfiles">https://github.com/ceholden/dotfiles</a></p>
+<p><a href="https://github.com/ceholden/dotfiles" class="uri">https://github.com/ceholden/dotfiles</a></p>
 </section><section id="yours" class="slide level2">
 <h1>Yours?</h1>
 <p>If you think of any neat dotfile tricks for GEO, please let me know.</p>
@@ -217,34 +250,33 @@ export -f gdal_extent</code></pre>
     </div>
   </div>
 
-
   <script src="../../../reveal.js/lib/js/head.min.js"></script>
-  <script src="../../../reveal.js/js/reveal.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.js"></script>
 
   <script>
 
-      // Full list of configuration options available here:
+      // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
         width: 1600,
         height: 900,
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        slideNumber: true,
-        theme: 'simple', // available themes are in /css/theme
-        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Optional libraries used to extend on reveal.js
+        // Optional reveal.js plugins
         dependencies: [
           { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-//          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-//          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-]});
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
     </script>
     </body>
 </html>

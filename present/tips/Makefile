@@ -4,7 +4,7 @@ MEXT = md
 SRC = $(wildcard week*/*.$(MEXT))
 ### Location of reveal.js
 RJS = ../../../reveal.js
-RJSTEMPLATE = ../../revealjs_highlight_template.html
+RJSTEMPLATE = ../../default.revealjs.html
 
 PDFS=$(SRC:.md=.pdf)
 HTML=$(SRC:.md=.html)
@@ -13,12 +13,16 @@ pdf:	clean $(PDFS)
 html:	clean $(HTML)
 
 %.html:	%.md
+		@echo "Converting $< to HTML"
 		@cd $(dir $<); pandoc -t revealjs -i \
 			--standalone \
 			--template=$(RJSTEMPLATE) \
- 			--no-highlight -V hlss=zenburn \
+ 			-V hlss=zenburn \
 			-V revealjs-url=$(RJS) \
-			-V theme=simple -V transition=linear \
+			-V theme=simple \
+			-V transition=linear \
+			-V slideNumber=true \
+			-V center=true \
 			-o index.html $(notdir $<)
 
 %.pdf:	%.md

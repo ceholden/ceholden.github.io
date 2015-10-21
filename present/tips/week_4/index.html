@@ -3,29 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Thursday, November 6th, 2014" />
+  <meta name="author" content="Thursday, November 6th, 2014">
   <title>Tip of the Week</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="../../../reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-<!-- For syntax highlighting using highlight.js-->
-    <link rel="stylesheet" href="../../../reveal.js/lib/css/zenburn.css">
-    <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '../../../reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
-    <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../reveal.js/css/print/pdf.css' : '../../../reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -50,7 +46,7 @@
 <li class="fragment">Vector to Raster: <code>gdal_rasterize</code></li>
 </ul></li>
 <li class="fragment"><code>module load gdal/1.10.0</code></li>
-<li class="fragment"><a href="http://www.gdal.org/gdal_utilities.html">http://www.gdal.org/gdal_utilities.html</a></li>
+<li class="fragment"><a href="http://www.gdal.org/gdal_utilities.html" class="uri">http://www.gdal.org/gdal_utilities.html</a></li>
 </ul>
 </section><section id="api" class="slide level2">
 <h1>API</h1>
@@ -90,7 +86,7 @@
 <li class="fragment">Reproject: <code>ogr2ogr -t_srs &quot;EPSG:4326&quot; vector_wgs84.shp vector.shp</code></li>
 <li class="fragment">Merge: <code>ogr2ogr -append combined.shp part2.shp</code></li>
 </ul></li>
-<li class="fragment"><a href="http://www.gdal.org/ogr_utilities.html">http://www.gdal.org/ogr_utilities.html</a></li>
+<li class="fragment"><a href="http://www.gdal.org/ogr_utilities.html" class="uri">http://www.gdal.org/ogr_utilities.html</a></li>
 </ul>
 </section></section>
 <section><section id="qgis" class="titleslide slide level1"><h1>QGIS</h1></section><section id="qgis-v2.0" class="slide level2">
@@ -139,14 +135,14 @@
 <li class="fragment">Usable version on GEO/SCC</li>
 <li class="fragment">Cannot push / pull using HTTPS</li>
 <li class="fragment">Must generate crypto keypair and give Github your public key</li>
-<li class="fragment"><a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></li>
+<li class="fragment"><a href="https://help.github.com/categories/ssh/" class="uri">https://help.github.com/categories/ssh/</a></li>
 </ul>
 </section></section>
 <section><section id="reproducibility" class="titleslide slide level1"><h1>Reproducibility</h1></section><section id="ipython-notebook" class="slide level2">
 <h1>IPython Notebook</h1>
 <p>Use Python? Want to share or explain your work, or just save and document your explorations?</p>
 <ul>
-<li class="fragment"><a href="http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">Nature: Interactive notebooks: Sharing the code</a> (doi:10.1038/515151a)</li>
+<li class="fragment"><a href="http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">Nature - Interactive notebooks: Sharing the code</a> (doi:10.1038/515151a)</li>
 <li class="fragment">On GEO:
 <ul>
 <li class="fragment"><code>module load python/2.7.5</code></li>
@@ -167,34 +163,33 @@
     </div>
   </div>
 
-
   <script src="../../../reveal.js/lib/js/head.min.js"></script>
-  <script src="../../../reveal.js/js/reveal.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.js"></script>
 
   <script>
 
-      // Full list of configuration options available here:
+      // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
         width: 1600,
         height: 900,
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        slideNumber: true,
-        theme: 'simple', // available themes are in /css/theme
-        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Optional libraries used to extend on reveal.js
+        // Optional reveal.js plugins
         dependencies: [
           { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-//          { src: '../../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-//          { src: '../../../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-]});
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
     </script>
     </body>
 </html>
