@@ -1,23 +1,27 @@
 ## Markdown extension (e.g. md, markdown, mdown).
 MEXT = md
 ## All markdown files in the working directory
-SRC = $(wildcard *.$(MEXT))
+SRC = $(wildcard 201*/*.$(MEXT))
 ### Location of reveal.js
 RJS = ../../../reveal.js
-RJSTEMPLATE = ../revealjs_highlight_template.html
+RJSTEMPLATE = ../../default.revealjs.html
 
 HTML=$(SRC:.md=.html)
 all:	$(PDFS) $(HTML)
 html:	clean $(HTML)
 
 %.html:	%.md
-		pandoc -t revealjs -i \
+		@cd $(dir $<); pandoc -t revealjs -i \
 			--standalone \
 			--template=$(RJSTEMPLATE) \
- 			--no-highlight -V hlss=zenburn \
+			-V width=1600 -V height=900 \
+ 			-V hlss=zenburn \
 			-V revealjs-url=$(RJS) \
-			-V theme=simple -V transition=linear \
-			-o "$@" "$<"
+			-V theme=simple \
+			-V transition=linear \
+			-V slideNumber=true \
+			-V center=true \
+			-o index.html $(notdir $<)
 
 clean:
-	rm -f *.html 
+	rm -f 201*/*.html
