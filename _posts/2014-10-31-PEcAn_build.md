@@ -19,20 +19,20 @@ The [Predictive Ecosystem Analyzer (PEcAn)](https://github.com/PecanProject/peca
 
 To get started, I will clone the PEcAn repository:
 
-``` {.bash}
+``` bash
 > git clone https://github.com/PecanProject/pecan.git
 > cd pecan/
 ```
 
 Next, I will make sure that R knows where my `R_LIBS_USER` folder is located by setting the environmental variable:
 
-``` {.bash}
+``` bash
 > export R_LIBS_USER=/usr3/graduate/ceholden/R_TEST/x86_64-unknown-linux-gnu-library/3.1
 ```
 
 Note that this is not my usual `R_LIBS_USER` directory, but one I am creating just for this exercise.
 
-``` {.bash}
+``` bash
 > mkdir -p $R_LIBS_USER
 ```
 
@@ -40,26 +40,26 @@ Note that this is not my usual `R_LIBS_USER` directory, but one I am creating ju
 
 I will be installing `PEcAn` using `R` version 3.1.0 ("Spring Dance").
 
-``` {.bash}
+``` bash
 > module load R_earth/3.1.0
 ```
 
-***Note***: 
+***Note***:
 > For the sake of demonstration, I will force the PEcAn install script to install a new version of `rgdal` to show how to compile it manually. The `R_earth/3.1.0` module already comes with `rgdal`, but what if we wanted a more recent version?
 
 ## Dependencies
 
 PEcAn comes with an Rscript that will take care of most of the dependencies. Note that I have piped the standard error and output to `tee` so that I can view the output in the console while saving it to a text file for further analysis.
 
-``` {.bash}
+``` bash
 > R CMD scripts/install.dependencies.R 2>&1 | tee pecan_install.log
 ```
 
 The script begins by stating what will be installed:
 
-``` {.R}
+``` r
 [1] "installing : "
- [1] "abind"       "car"         "chron"       "coda"        "data.table" 
+ [1] "abind"       "car"         "chron"       "coda"        "data.table"
  [6] "doSNOW"      "dplR"        "earth"       "emulator"    "ggmap"      
 [11] "ggplot2"     "gridExtra"   "Hmisc"       "kernlab"     "knitr"      
 [16] "lubridate"   "MASS"        "MCMCpack"    "mvtnorm"     "ncdf4"      
@@ -73,7 +73,7 @@ The installation will take a long time, but most packages built without issue. A
 
 At the very end of running the `install.dependencies.R` script, R spat out the following messages:
 
-```
+``` r
 Warning messages:
 1: In install.packages(new.packages, repos = "http://cran.rstudio.com/") :
   installation of package 'rgdal' had non-zero exit status
@@ -87,14 +87,14 @@ Warning messages:
   installation of package 'RPostgreSQL' had non-zero exit status
 ```
 
-To finish the installation of these packages, we'll work through them one by one. The installation errors can be diagnosed in the `configure` stage. 
+To finish the installation of these packages, we'll work through them one by one. The installation errors can be diagnosed in the `configure` stage.
 
 ***NOTE***
 > The latest versions of these dependencies have likely changed. Please the appropriate links on your favorite CRAN mirror and update the links accordingly.
 
 ### rgdal
 
-```{.bash}
+``` bash
 > wget http://cran.r-project.org/src/contrib/rgdal_0.9-1.tar.gz
 > tar xvf rgdal_0.9-1.tar.gz
 > cd rgdal/
@@ -105,7 +105,7 @@ To finish the installation of these packages, we'll work through them one by one
 
 The configuration script was able to find our GDAL installation location because `gdal-config` was in the `PATH` after we loaded the `gdal/1.10.0` module. Unfortunately,
 
-``` {.bash}
+``` bash
 checking for proj_api.h... yes
 checking for pj_init_plus in -lproj... no
 configure: error: libproj not found in standard or given locations.
@@ -113,18 +113,18 @@ configure: error: libproj not found in standard or given locations.
 
 We can resolve this by adding a couple `--with-*` flags (see `./configure --help` for the specifics). We can pass these arguments to the configuration stage within an R installation using `--configure-args`:
 
-```
+``` bash
 > module load gdal/1.10.0
 > R CMD INSTALL --configure-args="--with-proj-include=/project/earth/packages/proj-4.8.0/include --with-proj-lib=/project/earth/packages/proj-4.8.0/lib --with-proj-share=/project/earth/packages/proj-4.8.0/share/proj" rgdal_0.9.1.tar.gz
 ```
 
 Success!
-  
+
 ### udunits
 
 Similarly, we need to load the `udunits` compiled library before we'd have any hope of installing the R bindings to it:
 
-```{.bash}
+``` bash
 > module load udunits/2.1.24
 > wget http://cran.rstudio.com/src/contrib/udunits2_0.6.tar.gz
 > R CMD INSTALL --configure-args="--with-udunits2=/project/earth/packages/udunits-2.1.24/" udunits2_0.6.tar.gz
@@ -136,7 +136,7 @@ Success!
 
 This one gave me the most difficulty. Maybe it's me, but I couldn't figure out how to pass the correct location of the Python shared library files during the linking stage of the compilation. Eventually, I checked the configure script, did some searching, and found that `MAKEFLAGS` was the thing that I needed to specify to correctly pass `LDFLAGS`:
 
-```{.bash}
+``` bash
 > module load python/2.7.5
 > export MAKEFLAGS='LDFLAGS=-L/project/earth/packages/Python-2.7.5/lib'
 > wget http://cran.rstudio.com/src/contrib/rPython_0.0-5.tar.gz
@@ -149,7 +149,7 @@ Success!
 
 `rjags` requires the JAGS library be installed. Luckily this is already available as module:
 
-```{.bash}
+``` bash
 > module load jags/3.4.0
 > wget http://cran.r-project.org/src/contrib/rjags_3-14.tar.gz
 > R CMD INSTALL --configure-args="--prefix=/project/earth/packages/JAGS-3.4.0/bin --with-jags-lib=/project/earth/packages/JAGS-3.4.0/lib --with-jags-include=/project/earth/packages/JAGS-3.4.0/include/JAGS" rjags_3-14.tar.gz
@@ -161,7 +161,7 @@ Success!
 
 And finally the last R package that needs a pre-built library installed:
 
-``` {.bash}
+``` bash
 > module load postgresql/9.2.4
 > wget http://cran.r-project.org/src/contrib/RPostgreSQL_0.4.tar.gz
 > tar xvf RPostgreSQL_0.4.tar.gz
@@ -176,7 +176,7 @@ With all the dependencies installed, we can finally install PEcAn:
 
 Load required modules:
 
-```{.bash}
+``` bash
 > module load udunits2/2.1.24
 > module load R_earth/3.1.0
 > module load gdal/1.10.0
@@ -186,7 +186,7 @@ Load required modules:
 
 Clone PEcAn repository and build:
 
-``` {.bash}
+``` bash
 > git clone https://github.com/PecanProject/pecan.git
 > cd pecan/
 > ./scripts/build.sh
@@ -196,13 +196,13 @@ The build script will take some time building all of the submodules, but it will
 
 ## PEcAn module
 
-Now that PEcAn is built for my own `R_LIBS_USER` directory, we can copy it somewhere to make it globally available by creating a module for the libraries. This module will be seen by R if we add the location to the `R_LIBS_SITE` environment variable. 
+Now that PEcAn is built for my own `R_LIBS_USER` directory, we can copy it somewhere to make it globally available by creating a module for the libraries. This module will be seen by R if we add the location to the `R_LIBS_SITE` environment variable.
 
 The idea is that this location will serve as a repository for a basic set of installation dependencies for PEcAn. If a user wants to upgrade PEcAn, they can re-build it and install it into their local `R_LIBS_USER` folder which will take precedence. Similarly, any dependencies that are upgraded by the user will take precedence over the libraries installed in this module. For confirmation of this behavior, see the [documentation R provides about packages for the Debian Linux distribution](http://cran.r-project.org/bin/linux/debian/README.html).
 
 Another way of testing this behavior is using the `.libPaths()` command within R as [described here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/libPaths.html). For example:
 
-``` {.R}
+``` r
 > .libPaths()
 [1] "/usr3/graduate/ceholden/R/x86_64-unknown-linux-gnu-library/3.1"
 [2] "/project/earth/packages/R-3.1.0/lib64/R/library"
@@ -210,7 +210,7 @@ Another way of testing this behavior is using the `.libPaths()` command within R
 
 With the package dependencies copied over to a globally accessible and backed up location, we can write the module file as follows:
 
-``` {.bash}
+``` bash
 #%Module 1.0
 #
 
@@ -237,16 +237,15 @@ prepend-path R_LIBS_SITE $topdir/R_LIBS/
 
 To use this module, simply load it as normal:
 
-``` {.bash}
+``` bash
 module load PEcAn/latest
 ```
 
 As a test of whether or not the load order is correctly specified, you can check the library order within R:
 
-``` {.R}
+``` r
 > .libPaths()
 [1] "/usr3/graduate/ceholden/R/x86_64-unknown-linux-gnu-library/3.1"
 [2] "/project/earth/packages/PEcAn/R_LIBS"                          
 [3] "/project/earth/packages/R-3.1.0/lib64/R/library"
 ```
-
