@@ -80,9 +80,7 @@ Timeseries analysis method for finding changes in land cover or land dynamics
     * Forecast model predictions
     * Monitor for change in forecast model residuals
 
-## Example
-
-Forest Harvest and Regrowth
+## Forest Harvest and Regrowth
 
 ![Tasseled Cap "Greenness"](./media/timeseries/forest_change_regrow_data.png)
 
@@ -94,10 +92,6 @@ $$ \hat{\rho}_i = \beta_0 + \beta_1 x_i + \sum_{j \in{N}}[\beta_{2j}\cos(\frac{2
 - Slope: Remove time trend in reflectance
 - Sin/Cosine: Remove seasonality in reflectance
 - **Residual**: Our signal of interest!
-
-## Example:
-
-Forest Cut and Regrowth
 
 ##
 
