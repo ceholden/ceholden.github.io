@@ -21,8 +21,7 @@ Operational Land Imager (OLI)
 - "Pushbroom" sensor
 - 12-bit radiometric resolution
 - Cirrus cloud band!
-- Small bandwidth changes in visible
-- Very large changes in NIR and SWIR
+- Changes to bandwidths of measurements
 
 ##
 ![Spectral Response Functions](./media/2014_flood_le7_lc8_spectral.png)
@@ -42,7 +41,7 @@ Holden, Christopher E. and Curtis E. Woodcock. (In revision). An analysis of Lan
 3. What are the spectral characteristics of cloud and cirrus clouds masked by Landsat 8 but omitted in Landsat 7 data?
 4. Are the cloud masking improvements in Landsat 8 apparent in timeseries?
 
-## Sensor Differences
+## Potential Sensor Differences
 
 1. Measurement calibration
 2. Atmospheric correction
@@ -209,3 +208,5 @@ Dummy Variable Map
 2. Statistical modeling of the sensor specific difference may help integrate Landsat 8
 3. Relative contribution of atmospheric correction versus spectral response window is unknown
 4. Dummy variable analysis suggests differences are target specific (uh oh!)
+
+# Questions
