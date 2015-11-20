@@ -11,7 +11,7 @@ all:	$(HTML)
 html:	clean $(HTML)
 
 %.html:	%.md
-		@cd $(dir $<); pandoc -t revealjs \
+		@cd $(dir $<); pandoc -t revealjs -i \
 			--standalone \
 			--template=$(RJSTEMPLATE) \
 			-V width=1600 -V height=900 \
@@ -21,6 +21,7 @@ html:	clean $(HTML)
 			-V transition=linear \
 			-V slideNumber=true \
 			-V center=true \
+			-V width=1600 -V height=900 \
 			-o index.html $(notdir $<)
 
 clean:
