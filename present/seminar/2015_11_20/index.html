@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Chris Holden">
+  <meta name="dcterms.date" content="2015-11-20">
+  <title>Extending Landsat's Record: Integrating Landsat 8 OLI Measurements into TM/ETM+ Timeseries Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../../reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../../reveal.js/css/print/pdf.css' : '../../../reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../../../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Extending Landsat's Record: Integrating Landsat 8 OLI Measurements into TM/ETM+ Timeseries Analysis</h1>
+    <h2 class="author">Chris Holden</h2>
+    <h3 class="date">November 20, 2015</h3>
+</section>
+
+<section><section id="landsat" class="titleslide slide level1"><h1>Landsat</h1></section><section id="characteristics" class="slide level2">
+<h1>Characteristics</h1>
+<ul>
+<li class="fragment">30m passive optical with 16-day repeat</li>
+<li class="fragment">Consistency in nature of observations</li>
+<li class="fragment">Living witness to 40 years of global change</li>
+<li class="fragment">Freely available</li>
+</ul>
+</section><section id="section" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/L8-program_timeline.png" alt="History of Landsat Program" /><figcaption>History of Landsat Program</figcaption>
+</figure>
+</section><section id="landsat-8" class="slide level2">
+<h1>Landsat 8</h1>
+<p>Operational Land Imager (OLI)</p>
+<ul>
+<li class="fragment">&quot;Pushbroom&quot; sensor</li>
+<li class="fragment">12-bit radiometric resolution</li>
+<li class="fragment">Cirrus cloud band!</li>
+<li class="fragment">Small bandwidth changes in visible</li>
+<li class="fragment">Very large changes in NIR and SWIR</li>
+</ul>
+</section><section id="section-1" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/2014_flood_le7_lc8_spectral.png" alt="Spectral Response Functions" /><figcaption>Spectral Response Functions</figcaption>
+</figure>
+<p><em>Credit</em>: Flood, 2014</p>
+</section></section>
+<section><section id="investigation" class="titleslide slide level1"><h1>Investigation</h1></section><section id="paper" class="slide level2">
+<h1>Paper</h1>
+<p>Holden, Christopher E. and Curtis E. Woodcock. (In revision). An analysis of Landsat 7 and Landsat 8 underflight data and the implications for time series investigations. Remote Sensing of Environment</p>
+</section><section id="questions" class="slide level2">
+<h1>Questions</h1>
+<ol type="1">
+<li class="fragment"><strong>Do Landsat 7 and Landsat 8 spectral reflectances from CDR differ significantly? If so, what is the nature of the differences?</strong></li>
+<li class="fragment"><strong>Are timeseries of Landsat 7 and Landsat 8 data different? What is the effect of combining the two sensors?</strong></li>
+<li class="fragment">What are the spectral characteristics of cloud and cirrus clouds masked by Landsat 8 but omitted in Landsat 7 data?</li>
+<li class="fragment">Are the cloud masking improvements in Landsat 8 apparent in timeseries?</li>
+</ol>
+</section><section id="sensor-differences" class="slide level2">
+<h1>Sensor Differences</h1>
+<ol type="1">
+<li class="fragment">Measurement calibration</li>
+<li class="fragment">Atmospheric correction
+<ul>
+<li class="fragment">TM/ETM+: LEDAPS</li>
+<li class="fragment">OLI: L8SR</li>
+</ul></li>
+<li class="fragment">Spectral response functions</li>
+</ol>
+</section></section>
+<section><section id="landsat-8-underflight" class="titleslide slide level1"><h1>Landsat 8 &quot;Underflight&quot;</h1></section><section id="section-2" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/p029r031_underflight_reflectances.png" alt="Nebraska, US" /><figcaption>Nebraska, US</figcaption>
+</figure>
+</section><section id="section-3" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/p029r031_underflight_indices.png" alt="Nebraska, US" /><figcaption>Nebraska, US</figcaption>
+</figure>
+</section></section>
+<section><section id="timeseries" class="titleslide slide level1"><h1>Timeseries</h1></section><section id="so-there-sensors-look-different..." class="slide level2">
+<h1>So there sensors look different...</h1>
+<ol type="1">
+<li class="fragment">Do the reflectance differences affect statistical modeling?
+<ul>
+<li class="fragment">Intercept</li>
+<li class="fragment">Time trend slope</li>
+</ul></li>
+<li class="fragment">Do the differences in reflectance hinder our ability to find change?</li>
+</ol>
+</section><section id="continuous-change-detection-and-classification-ccdc" class="slide level2">
+<h1>Continuous Change Detection and Classification (CCDC)</h1>
+</section><section id="ccdc" class="slide level2">
+<h1>CCDC</h1>
+<p>Timeseries analysis method for finding changes in land cover or land dynamics</p>
+<ol type="1">
+<li class="fragment">Fit simple regression models to historical time period</li>
+<li class="fragment">Monitor for change in signal
+<ul>
+<li class="fragment">Forecast model predictions</li>
+<li class="fragment">Monitor for change in forecast model residuals</li>
+</ul></li>
+</ol>
+</section><section id="example" class="slide level2">
+<h1>Example</h1>
+<p>Forest Harvest and Regrowth</p>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_data.png" alt="Tasseled Cap &quot;Greenness&quot;" /><figcaption>Tasseled Cap &quot;Greenness&quot;</figcaption>
+</figure>
+</section><section id="ccdc-1" class="slide level2">
+<h1>CCDC</h1>
+<p><br /><span class="math display">$$ \hat{\rho}_i = \beta_0 + \beta_1 x_i + \sum_{j \in{N}}[\beta_{2j}\cos(\frac{2\pi j}{T}x_i) + \beta_{2j+1}\sin(\frac{2\pi j}{T}x_i)] + e_i $$</span><br /></p>
+<ul>
+<li class="fragment">Intercept: Remove mean reflectance</li>
+<li class="fragment">Slope: Remove time trend in reflectance</li>
+<li class="fragment">Sin/Cosine: Remove seasonality in reflectance</li>
+<li class="fragment"><strong>Residual</strong>: Our signal of interest!</li>
+</ul>
+</section><section id="example-1" class="slide level2">
+<h1>Example:</h1>
+<p>Forest Cut and Regrowth</p>
+</section><section id="section-4" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_data.png" alt="Tasseled Cap &quot;Greenness&quot;" /><figcaption>Tasseled Cap &quot;Greenness&quot;</figcaption>
+</figure>
+</section><section id="section-5" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_fit_bad.png" alt="Tasseled Cap &quot;Greenness&quot; Forecast" /><figcaption>Tasseled Cap &quot;Greenness&quot; Forecast</figcaption>
+</figure>
+</section><section id="section-6" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_resid.png" alt="Tasseled Cap &quot;Greenness&quot; Residual" /><figcaption>Tasseled Cap &quot;Greenness&quot; Residual</figcaption>
+</figure>
+</section><section id="section-7" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_fit_good.png" alt="Tasseled Cap &quot;Greenness&quot; Forecast with Structural Change" /><figcaption>Tasseled Cap &quot;Greenness&quot; Forecast with Structural Change</figcaption>
+</figure>
+</section><section id="section-8" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/timeseries/forest_change_regrow_resid_good.png" alt="Tasseled Cap &quot;Greenness&quot; Residual" /><figcaption>Tasseled Cap &quot;Greenness&quot; Residual</figcaption>
+</figure>
+</section></section>
+<section><section id="timeseries-results" class="titleslide slide level1"><h1>Timeseries Results</h1></section><section id="test-framework" class="slide level2">
+<h1>Test Framework</h1>
+<ol type="1">
+<li class="fragment">Collect Landsat 7 and Landsat 8 data</li>
+<li class="fragment">Run timeseries analysis using just Landsat 7</li>
+<li class="fragment">Run timeseries analysis with ONLY Landsat 8 after 2013</li>
+<li class="fragment">Run timeseries analysis with BOTH Landsat 7 and 8 after 2013</li>
+<li class="fragment">Compare model parameter estimates</li>
+</ol>
+</section><section id="section-9" class="slide level2">
+<h1></h1>
+<p>$ Intercept_{LC8} $ / $ Intercept_{LE7} $</p>
+<figure>
+<img src="./media/histograms/p043r034_reflectance_intercept_hist.png" alt="" />
+</figure>
+</section><section id="slope" class="slide level2">
+<h1>Slope</h1>
+<p>$ Slope_{LC8} $ - $ Slope_{LE7} $</p>
+<figure>
+<img src="./media/histograms/p043r034_reflectance_slope_hist.png" alt="" />
+</figure>
+</section><section id="rmse" class="slide level2">
+<h1>RMSE</h1>
+<p>$ RMSE_{LC8} $ / $ RMSE_{LE7} $</p>
+<figure>
+<img src="./media/histograms/p043r034_reflectance_rmse_hist.png" alt="" />
+</figure>
+</section><section id="conclusions" class="slide level2">
+<h1>Conclusions</h1>
+<ol type="1">
+<li class="fragment">Reflectance differences affect statistical modeling
+<ul>
+<li class="fragment">Intercept</li>
+<li class="fragment">Time trend slope</li>
+</ul></li>
+<li class="fragment">Increase in unexplained variance (RMSE) hurts ability to find changes in reflectance</li>
+</ol>
+</section></section>
+<section><section id="a-simple-correction" class="titleslide slide level1"><h1>A Simple Correction?</h1></section><section id="problem" class="slide level2">
+<h1>Problem</h1>
+<ul>
+<li class="fragment">Sensor specific differences is left unexplained in regression model</li>
+<li class="fragment">Sensor differences bias estimates of other model parameters</li>
+<li class="fragment">Can we model the sensor differences?</li>
+</ul>
+</section><section id="dummy-variable" class="slide level2">
+<h1>Dummy Variable</h1>
+<p><br /><span class="math display">$$ \hat{\rho}_i = \beta_0 + \beta_1 x_i + \sum_{j \in{N}}[\beta_{2j}\cos(\frac{2\pi j}{T}x_i) + \beta_{2j+1}\sin(\frac{2\pi j}{T}x_i)] + C(sensor_i) + e_i $$</span><br /></p>
+<ul>
+<li class="fragment">Intercept: Subtract mean reflectance</li>
+<li class="fragment">Slope: Remove time trend in reflectance</li>
+<li class="fragment">Sin/Cosine: Remove seasonality in reflectance</li>
+<li class="fragment">Dummy variable: Remove sensor specific difference</li>
+<li class="fragment"><strong>Residual</strong>: Our signal of interest!</li>
+</ul>
+</section><section id="example-2" class="slide level2">
+<h1>Example</h1>
+<figure>
+<img src="./media/ndvi_timeseries.png" alt="" />
+</figure>
+</section><section id="example-3" class="slide level2">
+<h1>Example</h1>
+<figure>
+<img src="./media/ndvi_timeseries_dummy.png" alt="With dummy" /><figcaption>With dummy</figcaption>
+</figure>
+</section></section>
+<section><section id="dummy-variable-1" class="titleslide slide level1"><h1>Dummy Variable</h1></section><section id="section-10" class="slide level2">
+<h1></h1>
+<p>What is being corrected in dummy variable?</p>
+<ol type="1">
+<li class="fragment">Measurement calibration</li>
+<li class="fragment">Atmospheric correction</li>
+<li class="fragment">Spectral response functions</li>
+</ol>
+</section><section id="section-11" class="slide level2">
+<h1></h1>
+<p>Dummy Variable Map</p>
+<ul>
+<li class="fragment">Atmospheric correction:
+<ul>
+<li class="fragment">dummy estimates should be equal across land cover type</li>
+</ul></li>
+<li class="fragment">Spectral response function:
+<ul>
+<li class="fragment">dummy variable will be a function of land cover type</li>
+</ul></li>
+</ul>
+</section><section id="section-12" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/dummy/site_1.png" alt="" />
+</figure>
+</section><section id="section-13" class="slide level2">
+<h1></h1>
+<figure>
+<img src="./media/dummy/site_2.png" alt="" />
+</figure>
+</section></section>
+<section><section id="conclusions-1" class="titleslide slide level1"><h1>Conclusions</h1></section><section id="section-14" class="slide level2">
+<h1></h1>
+<ol type="1">
+<li class="fragment">Landsat 8 data are different enough to hinder timeseries analysis if left uncorrected</li>
+<li class="fragment">Statistical modeling of the sensor specific difference may help integrate Landsat 8</li>
+<li class="fragment">Relative contribution of atmospheric correction versus spectral response window is unknown</li>
+<li class="fragment">Dummy variable analysis suggests differences are target specific (uh oh!)</li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../../../reveal.js/lib/js/head.min.js"></script>
+  <script src="../../../reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+        height: 900,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../../../reveal.js/plugin/notes/notes.js', async: true },
+          // MathJax
+          { src: '../../../reveal.js/plugin/math/math.js', async: true }
+
+        ]
+      });
+    </script>
+    </body>
+</html>
